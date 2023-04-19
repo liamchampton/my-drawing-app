@@ -7,11 +7,12 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"MS-vsliveshare.vsliveshare",
+				"ms-vsliveshare.vsliveshare",
 				"GitHub.copilot"
 			]
 		}
-	}
+	},
+	"postCreateCommand": "bash scripts/install-nextjs.sh"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
