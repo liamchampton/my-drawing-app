@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
+import { useRef, useState } from "react";
 
-const DrawingCanvas = () => {
+const DrawingCanvas = ({ brushColor }) => {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [brushSize, setBrushSize] = useState(10);
@@ -8,7 +8,8 @@ const DrawingCanvas = () => {
   const startDrawing = (event) => {
     setIsDrawing(true);
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
+    ctx.strokeStyle = brushColor;
     ctx.beginPath();
     ctx.moveTo(
       event.clientX - canvas.offsetLeft,
@@ -19,7 +20,7 @@ const DrawingCanvas = () => {
   const draw = (event) => {
     if (!isDrawing) return;
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     ctx.lineWidth = brushSize;
     ctx.lineTo(
       event.clientX - canvas.offsetLeft,
